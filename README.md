@@ -10,12 +10,19 @@ The forecasting of stock price may serve as an essential recommendation system t
 Long short-term memory (LSTM) is a part of recurrent neural network. LSTM based model can predict some arbitrary values into the future after getting trained on the basis of previous information or historical data. A traditional LSTMconsists cell state (ct), hidden state (ht), input gate, forgetgate and output gate which makes LSTM efficient in terms ofboth long-term and short-term dependencies.
 
 Below are the key terms from our LSTM model.
+
 a) Optimizer used: Adam.
+
 b) Dropout per iteration: 20%
+
 c) Loss function used: Mean squared error (MSE).
+
 d) Batch size used: 64
+
 e) Epochs: Trained for 100 epochs.
+
 f) Validation size: 35% of total data.
+
 g) Validation loss: 0.0011
 
 **ARIMA Approach**
@@ -31,9 +38,12 @@ We find out value of p for AAPL Dataset and p value found was 0.11. Hence we pro
 The parameter d=1 symbolizes that each value of dataset will be subtracted from the previous values.
 
 **ARIMA (a, d, q):**
+	
 	**‘a’** is the degree to which the variable correlates itself.  
-         **‘d’** is the differencing to make dataset stationary. The value of d may vary in different datasets depending on the stationarity of that dataset. The value of d was kept for AAPL dataset d=1.
-         **‘q’** is the Moving Average i.e. window of indexes in the series which is averaged to get result. The value of q was varied between 2 to 10.
+        
+	**‘d’** is the differencing to make dataset stationary. The value of d may vary in different datasets depending on the stationarity of that dataset. The value of d was kept for AAPL dataset d=1.
+         
+	 **‘q’** is the Moving Average i.e. window of indexes in the series which is averaged to get result. The value of q was varied between 2 to 10.
 
 
 
