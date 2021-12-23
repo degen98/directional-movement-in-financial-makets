@@ -1,0 +1,124 @@
+import pandas as pd
+from numpy import array
+import matplotlib.pyplot as plt
+from tkinter import * 
+import tkinter as tk
+from matplotlib.figure import Figure 
+from matplotlib.backends.backend_tkagg import *
+import matplotlib.pyplot as plt
+
+df=pd.read_csv('AAPL.csv')
+
+df1 = df.reset_index()['close']
+
+import matplotlib.pyplot as plt
+import numpy as np
+from sklearn.preprocessing import MinMaxScaler
+scaler=MinMaxScaler(feature_range=(0,1))
+df1=scaler.fit_transform(np.array(df1).reshape(-1,1))
+
+training_size=int(len(df1)*0.65)
+test_size=len(df1)-training_size
+train_data,test_data=df1[0:training_size,:],df1[training_size:len(df1),:1]
+
+model=Sequential()
+model.add(LSTM(50,return_sequences=True,input_shape=(100,1)))
+model.add(LSTM(50,return_sequences=True))
+model.add(LSTM(50))
+model.add(Dense(1))
+model.compile(loss='mean_squared_error',optimizer='adam')
+
+from keras.models import model_from_json
+
+json_file = open('model.json', 'r')
+loaded_model_json = json_file.read()
+json_file.close()
+loaded_model = model_from_json(loaded_model_json)
+
+loaded_model.load_weights("model.h5")
+print("Loaded model from disk")
+
+def helloCallBack(days):
+    x_input=test_data[341:].reshape(1,-1)
+    x_input.shape
+    temp_input=list(x_input)
+    temp_input=temp_input[0].tolist()
+    lst_output=[]
+    n_steps=100
+    i=0
+    days = int(days)
+    while(i<days):
+if(len(temp_input)>100):
+            #print(temp_input)
+            x_input=np.array(temp_input[1:])
+            print("{} day input {}".format(i,x_input))
+            x_input=x_input.reshape(1,-1)
+            x_input = x_input.reshape((1, n_steps, 1))
+            #print(x_input)
+            yhat = loaded_model.predict(x_input, verbose=0)
+            print("{} day output {}".format(i,yhat))
+            temp_input.extend(yhat[0].tolist())
+            temp_input=temp_input[1:]
+            #print(temp_input)
+            lst_output.extend(yhat.tolist())
+            i=i+1
+        else:
+            x_input = x_input.reshape((1, n_steps,1))
+            yhat = loaded_model.predict(x_input, verbose=0)
+            print(yhat[0])
+            temp_input.extend(yhat[0].tolist())
+            print(len(temp_input))
+            lst_output.extend(yhat.tolist())	
+  i=i+1
+day_new=np.arange(1,101)
+day_pred=np.arange(101,101+days)
+stock = scaler.inverse_transform(lst_output)
+print(stock)
+    
+p1 = scaler.inverse_transform(df1[1158:])
+p2 = scaler.inverse_transform(lst_output)
+    
+df3=df1.tolist()
+df3.extend(lst_output)
+#plt.plot(df3[1200:])
+df3=scaler.inverse_transform(df3).tolist()
+#plt.plot(df3)
+win = tk.Tk()
+    
+fig = Figure(figsize = (7, 7), dpi = 100) 
+
+plot = fig.add_subplot(111) 
+
+plot.plot(day_new,p1,color = "blue",label = "Previous Stock Price") 
+plot.plot(day_pred,p2,color = "orange",label = "Previous Stock Price")
+
+canvas = FigureCanvasTkAgg(fig, master = win) 
+canvas.draw() 
+    	canvas.get_tk_widget().pack() 
+
+toolbar = NavigationToolbar2Tk(canvas, win) 
+toolbar.update() 
+canvas.get_tk_widget().pack() 
+     	win.title('Stock Price Prediction') 
+win.geometry("710x730+0+0")
+    	win.mainloop()  
+
+from tkinter import * 
+root = Tk()  
+root.title("STOCK PRICE PREDICTION")
+root.geometry("900x700+0+0") 
+root['bg'] = '#49A'  
+Label(root, text="WELCOME",fg = "light blue",bg = "green",font = "Helvetica 24 bold italic").pack(pady=20,fill=X) 
+Label(root, text="STOCK PRICE PREDICTION PROJECT",fg = "light green",bg = "dark green",font = "Helvetica 24 bold italic").pack(pady=20,fill=X)
+l1=Label(root, text="Enter number of days: ",bg = "pink",font = "Helvetica 18 bold italic",justify=LEFT)
+l1.place(x=40,y=200)
+endays=Entry(root,width=50)
+endays.place(x= 350,y=200,height = 38)
+
+B = Button(root, text ="Predict",font = "Helvetica 14 bold italic", command = lambda : helloCallBack(endays.get()))
+B.config(width=15, height=1)
+B.place(x=700,y=200)
+
+frame1 = Frame(root) 
+frame1.pack(pady = 20)
+root.mainloop()
