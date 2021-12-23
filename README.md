@@ -18,8 +18,7 @@ e) Epochs: Trained for 100 epochs.
 f) Validation size: 35% of total data.
 g) Validation loss: 0.0011
 
-**
-ARIMA Approach **
+**ARIMA Approach**
 
 
 ![image](https://user-images.githubusercontent.com/61080527/147283680-6644e160-04b3-480d-bf1c-6f3fac2f2ab2.png)
