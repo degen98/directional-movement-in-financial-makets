@@ -48,16 +48,32 @@ The parameter d=1 symbolizes that each value of dataset will be subtracted from 
 
 ![image](https://user-images.githubusercontent.com/61080527/147284360-f15780e1-96d7-4864-8734-387123b93646.png)
 
+ACF(Auto-Correlation) curve, the optimal (that give more accuracy) value of parameter q can be found. The minimum point that crosses the blue region is 5. Thus the
+value of parameter q can be taken as q=5. Thus, finalized values are: (a=5, d=1, q=5). The point to be note here is that these values are optimal for only this particular dataset and performance may deteriorate if used in other dataset. This is also one of major drawback of ARIMA algorithm.
+
+
 
 ![image](https://user-images.githubusercontent.com/61080527/147284572-3bec31f1-5652-4348-b8ef-d92f13973cac.png)
 
+the blue line denote the original datavalues and red line denotes the prediction done on the training data and green line shows the prediction done by LSTM
+model for testing data.
+
 ![image](https://user-images.githubusercontent.com/61080527/147284664-33195488-9b00-4491-9b82-993d8e678470.png)
+
+While predicting time-series based values using ARIMA model the values of parameters (a, d, q) plays a major role. The efficient values of these parameters will make it more prone to predict the accurate values. The predictions were found for testing data and were compared with original values which gives us satisfactory efficiency. The curve above shows the performance of model. The orange line is the actual data of the dataset and blue line symbolizes the predicted values by the ARIMA model.
 
 
 ![image](https://user-images.githubusercontent.com/61080527/147284808-39fd4d0f-73d3-4ccb-9c37-8b4fa892c19d.png)
 
+The prediction of future values of the stock closing prices can be performed. Below is the curve that shows future predicted stock values. The blue line shows the closing price of stocks till date. The orange line shows the stock values of the company in the future.(here it is 30 days). The model can perform predictions of future values but not give accurate results for long time span.
+
 
 ![image](https://user-images.githubusercontent.com/61080527/147284895-ffe13221-7e94-4aa3-bf34-369a4fd5706b.png)
+
+
+**Conclusion**
+
+The predictions done using the two different algorithms shows that LSTM gives more accurate results as compared to ARIMA model. ARIMA also has its own drawbacks as lot of preprocessing needs to be done before feeding the data to ARIMA model. On the other hand LSTM approach is more effective and can work better in multiple datasets. The accuracy of LSTM based forecasting were found higher than ARIMA.
 
 
 
