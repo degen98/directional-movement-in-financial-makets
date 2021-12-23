@@ -1,4 +1,4 @@
-# stock-price-prediction  
+# directional movement in Financial Markets  
 
 **Prediction of directional movement in Financial Markets - An Optimization Approach**
 
