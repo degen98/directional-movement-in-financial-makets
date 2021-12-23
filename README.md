@@ -7,8 +7,6 @@ The forecasting of stock price may serve as an essential recommendation system t
 
 ![image](https://user-images.githubusercontent.com/61080527/147283022-eb3d73b0-e793-4452-b01d-8a9598a4c929.png)
 
-![Uploading image.png…]()
-
 Long short-term memory (LSTM) is a part of recurrent neural network. LSTM based model can predict some arbitrary values into the future after getting trained on the basis of previous information or historical data. A traditional LSTMconsists cell state (ct), hidden state (ht), input gate, forgetgate and output gate which makes LSTM efficient in terms ofboth long-term and short-term dependencies.
 
 Below are the key terms from our LSTM model.
