@@ -27,6 +27,7 @@ Below are the key terms from our LSTM model.
 
 
 
+
 **ARIMA Approach**
 
 
@@ -41,11 +42,11 @@ The parameter d=1 symbolizes that each value of dataset will be subtracted from 
 
 **ARIMA (a, d, q):**
 	
-	‘a’ is the degree to which the variable correlates itself.  
+‘a’ is the degree to which the variable correlates itself.  
         
-	‘d’ is the differencing to make dataset stationary. The value of d may vary in different datasets depending on the stationarity of that dataset. The value of d was kept for AAPL dataset d=1.
+‘d’ is the differencing to make dataset stationary. The value of d may vary in different datasets depending on the stationarity of that dataset. The value of d was kept for AAPL dataset d=1.
          
-	 ‘q’ is the Moving Average i.e. window of indexes in the series which is averaged to get result. The value of q was varied between 2 to 10.
+‘q’ is the Moving Average i.e. window of indexes in the series which is averaged to get result. The value of q was varied between 2 to 10.
 
 
 
