@@ -49,5 +49,12 @@ The parameter d=1 symbolizes that each value of dataset will be subtracted from 
 ![image](https://user-images.githubusercontent.com/61080527/147284360-f15780e1-96d7-4864-8734-387123b93646.png)
 
 
+![image](https://user-images.githubusercontent.com/61080527/147284572-3bec31f1-5652-4348-b8ef-d92f13973cac.png)
+
+![image](https://user-images.githubusercontent.com/61080527/147284664-33195488-9b00-4491-9b82-993d8e678470.png)
+
+
+
+
 
 
