@@ -55,7 +55,7 @@ value of parameter q can be taken as q=5. Thus, finalized values are: (a=5, d=1,
 
 ![image](https://user-images.githubusercontent.com/61080527/147284572-3bec31f1-5652-4348-b8ef-d92f13973cac.png)
 
-the blue line denote the original datavalues and red line denotes the prediction done on the training data and green line shows the prediction done by LSTM
+In the above figure, the blue line denote the original datavalues and red line denotes the prediction done on the training data and green line shows the prediction done by LSTM
 model for testing data.
 
 ![image](https://user-images.githubusercontent.com/61080527/147284664-33195488-9b00-4491-9b82-993d8e678470.png)
