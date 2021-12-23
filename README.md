@@ -26,16 +26,22 @@ ARIMA Approach **
 
 ![image](https://user-images.githubusercontent.com/61080527/147283680-6644e160-04b3-480d-bf1c-6f3fac2f2ab2.png)
 
-fig = Figure(figsize = (7, 7), dpi = 100) 
+The basic requirement for using ARIMA model in any dataset is that the dataset must be stationary i.e. it should not have any trend or seasonality. To check if any dataset column stationary or not Dickey-Fuller test can be used. The value of result variable ‘p’ determine if the dataset is stationary or not.
 
-plot = fig.add_subplot(111) 
+![image](https://user-images.githubusercontent.com/61080527/147284116-115ea3ba-b15b-4857-bc32-dd0b2686e4e2.png)
 
-plot.plot(day_new,p1,color = "blue",label = "Previous Stock Price") 
-plot.plot(day_pred,p2,color = "orange",label = "Previous Stock Price")
+We find out value of p for AAPL Dataset and p value found was 0.11. Hence we provide differencing parameter to ARIMA as d=1, so that dataset can be made stationary.
+The parameter d=1 symbolizes that each value of dataset will be subtracted from the previous values.
 
-canvas = FigureCanvasTkAgg(fig, master = win) 
-canvas.draw() 
-    	canvas.get_tk_widget().pack() 
+**ARIMA (a, d, q):**
+	**‘a’** is the degree to which the variable correlates itself.  
+         **‘d’** is the differencing to make dataset stationary. The value of d may vary in different datasets depending on the stationarity of that dataset. The value of d was kept for AAPL dataset d=1.
+         **‘q’** is the Moving Average i.e. window of indexes in the series which is averaged to get result. The value of q was varied between 2 to 10.
+
+
+
+
+![image](https://user-images.githubusercontent.com/61080527/147284029-b938a712-543b-4f2d-a332-968374afee23.png)
 
 
 
