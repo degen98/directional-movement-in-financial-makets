@@ -43,8 +43,8 @@ The parameter d=1 symbolizes that each value of dataset will be subtracted from 
 
 ![image](https://user-images.githubusercontent.com/61080527/147284029-b938a712-543b-4f2d-a332-968374afee23.png)
 
-**
-AutoCorrelatin**
+
+**AutoCorrelation**
 
 ![image](https://user-images.githubusercontent.com/61080527/147284360-f15780e1-96d7-4864-8734-387123b93646.png)
 
